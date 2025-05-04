@@ -13,7 +13,7 @@ SCOPE = ["https://spreadsheets.google.com/feeds",
          "https://www.googleapis.com/auth/drive",
          "https://www.googleapis.com/auth/drive.file"]
 
-SERVICE_ACCOUNT_FILE = 'E:\CVs\Latest Resumes\Product\KPI dashboard\streamlit-dashboard-457409-c1afa8bf27ec.json'
+SERVICE_ACCOUNT_FILE = 'streamlit-dashboard-457409-c1afa8bf27ec.json'
 SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/14C8o2dzUF5eUpUvjgzSlebpma0m-Zqh_tnOqD4JGGyY/edit?gid=0#gid=0"
 
 creds = Credentials.from_service_account_file(
