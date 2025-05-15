@@ -3,27 +3,27 @@ import pandas as pd
 import gspread
 from google.oauth2.service_account import Credentials
 import plotly.express as px
+import json
 
 # ---- STREAMLIT PAGE CONFIG ----
 st.set_page_config(page_title="Team Performance Dashboard", layout="wide")
 
 # ---- GOOGLE SHEET SETUP ----
-SCOPE = ["https://spreadsheets.google.com/feeds",
-         "https://www.googleapis.com/auth/spreadsheets",
-         "https://www.googleapis.com/auth/drive",
-         "https://www.googleapis.com/auth/drive.file"]
+SCOPE = [
+    "https://spreadsheets.google.com/feeds",
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive",
+    "https://www.googleapis.com/auth/drive.file"
+]
 
-SERVICE_ACCOUNT_FILE = 'streamlit-dashboard-457409-c1afa8bf27ec.json'
+# Use secrets for service account credentials
+service_account_info = json.loads(st.secrets["gcp_service_account"])
 SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/14C8o2dzUF5eUpUvjgzSlebpma0m-Zqh_tnOqD4JGGyY/edit?gid=0#gid=0"
 
-creds = Credentials.from_service_account_file(
-    SERVICE_ACCOUNT_FILE, scopes=SCOPE)
-
+creds = Credentials.from_service_account_info(service_account_info, scopes=SCOPE)
 client = gspread.authorize(creds)
-
 spreadsheet = client.open_by_url(SPREADSHEET_URL)
 sheet = spreadsheet.worksheet("Data")
-
 data = pd.DataFrame(sheet.get_all_records())
 
 # ---- STREAMLIT DASHBOARD ----
@@ -63,8 +63,6 @@ st.markdown("---")
 # Charts
 col7, col8 = st.columns(2)
 
-# ...existing code...
-
 with col7:
     status_count = filtered_data['Status'].value_counts().reset_index()
     status_count.columns = ['Status', 'count']  # Rename columns for clarity
@@ -77,8 +75,6 @@ with col8:
     fig_hours = px.bar(team_hours, x='Team', y='Hours Spent',
                        title='Hours Spent by Team', color='Team', text='Hours Spent')
     st.plotly_chart(fig_hours, use_container_width=True)
-
-# ...existing code...
 
 # Table View
 st.subheader("📋 Project Details")

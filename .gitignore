@@ -1,1 +1,8 @@
+# Service account credentials
+*.json
 streamlit-dashboard-457409-c1afa8bf27ec.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
