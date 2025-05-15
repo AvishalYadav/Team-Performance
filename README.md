@@ -29,8 +29,9 @@ This app is deployed on Streamlit Community Cloud. Visit the [dashboard](https:/
 
 ## Data Source
 
-The dashboard pulls data from a Google Sheet that contains:
+The dashboard pulls data from a [Google Sheet](https://docs.google.com/spreadsheets/d/14C8o2dzUF5eUpUvjgzSlebpma0m-Zqh_tnOqD4JGGyY/edit?gid=0#gid=0) that contains:
 - Team information
 - Project status
 - Hours allocated and spent
 - Budget information
+- Priority
