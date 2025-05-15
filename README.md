@@ -34,3 +34,4 @@ The dashboard pulls data from a [Google Sheet](https://docs.google.com/spreadshe
 - Project status
 - Hours allocated and spent
 - Budget information
+- Priority
