@@ -25,7 +25,7 @@ A Streamlit dashboard for tracking team performance and resource utilization met
 
 ## Deployment
 
-This app is deployed on Streamlit Community Cloud. Visit the [dashboard](https://avishalyadav-team-performance.streamlit.app/) to view the live version.
+This app is deployed on Streamlit Community Cloud. Visit the [dashboard](https://avishalyadav-team-performance-app-uu83xh.streamlit.app/) to view the live version.
 
 ## Data Source
 
